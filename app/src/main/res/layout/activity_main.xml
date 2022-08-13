@@ -30,11 +30,42 @@
        </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 
-    <TableLayout
+
+    <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_alignParentBottom="true">
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="@color/orange"
+        app:tabMode="scrollable"
+        app:tabTextColor="@color/white"
+        app:tabIndicatorColor="@color/black"
+        app:tabIconTint="@color/white"
+        >
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="PREFERITI"
+            >
 
-    </TableLayout>
+        </com.google.android.material.tabs.TabItem>
 
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="PREFERITI"
+            >
+
+        </com.google.android.material.tabs.TabItem>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="PREFERITI"
+            >
+
+        </com.google.android.material.tabs.TabItem>
+
+
+
+    </com.google.android.material.tabs.TabLayout>
 </RelativeLayout>
