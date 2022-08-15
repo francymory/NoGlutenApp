@@ -1,9 +1,13 @@
-package com.example.noglutenappandroid;
+package com.example.noglutenappandroid.Adapters;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+
+import com.example.noglutenappandroid.FavoritesFragment;
+import com.example.noglutenappandroid.HomeFragment;
+import com.example.noglutenappandroid.YourRecipesFragment;
 
 public class PagerAdapter extends FragmentPagerAdapter {
 
@@ -18,12 +22,12 @@ public class PagerAdapter extends FragmentPagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        if(position==0){
-            return new FavoritesFragment();
-        }
 
-        else if(position==1){
+        if(position==0){
             return new HomeFragment();
+        }
+        else if(position==1){
+            return new FavoritesFragment();
         }
 
         else if(position==2){

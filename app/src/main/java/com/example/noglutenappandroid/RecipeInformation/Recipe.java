@@ -1,6 +1,7 @@
 package com.example.noglutenappandroid.RecipeInformation;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Recipe {
     public boolean vegetarian;
@@ -39,4 +40,143 @@ public class Recipe {
     public ArrayList<AnalyzedInstruction> analyzedInstructions;
     public Object originalId;
     public String spoonacularSourceUrl;
+
+
+
+    public boolean isVegetarian() {
+        return vegetarian;
+    }
+
+    public boolean isVegan() {
+        return vegan;
+    }
+
+    public boolean isGlutenFree() {
+        return glutenFree;
+    }
+
+    public boolean isDairyFree() {
+        return dairyFree;
+    }
+
+    public boolean isVeryHealthy() {
+        return veryHealthy;
+    }
+
+    public boolean isCheap() {
+        return cheap;
+    }
+
+    public boolean isVeryPopular() {
+        return veryPopular;
+    }
+
+    public boolean isSustainable() {
+        return sustainable;
+    }
+
+    public int getWeightWatcherSmartPoints() {
+        return weightWatcherSmartPoints;
+    }
+
+    public String getGaps() {
+        return gaps;
+    }
+
+    public boolean isLowFodmap() {
+        return lowFodmap;
+    }
+
+    public int getAggregateLikes() {
+        return aggregateLikes;
+    }
+
+
+    public int getHealthScore() {
+        return healthScore;
+    }
+
+    public String getCreditsText() {
+        return creditsText;
+    }
+
+    public String getLicense() {
+        return license;
+    }
+
+    public String getSourceName() {
+        return sourceName;
+    }
+
+    public double getPricePerServing() {
+        return pricePerServing;
+    }
+
+    public List<ExtendedIngredient> getExtendedIngredients() {
+        return extendedIngredients;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public int getReadyInMinutes() {
+        return readyInMinutes;
+    }
+
+    public int getServings() {
+        return servings;
+    }
+
+    public String getSourceUrl() {
+        return sourceUrl;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public String getImageType() {
+        return imageType;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public List<String> getCuisines() {
+        return cuisines;
+    }
+
+    public List<String> getDishTypes() {
+        return dishTypes;
+    }
+
+    public List<String> getDiets() {
+        return diets;
+    }
+
+
+    public String getInstructions() {
+        return instructions;
+    }
+
+    public List<AnalyzedInstruction> getAnalyzedInstructions() {
+        return analyzedInstructions;
+    }
+
+    public Object getOriginalId() {
+        return originalId;
+    }
+
+    public String getSpoonacularSourceUrl() {
+        return spoonacularSourceUrl;
+    }
 }
+
+
+

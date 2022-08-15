@@ -46,7 +46,7 @@
             android:id="@+id/tabHeart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:icon="@drawable/icon_heartfill">
+            android:icon="@drawable/icon_home">
 
         </com.google.android.material.tabs.TabItem>
 
@@ -54,7 +54,7 @@
             android:id="@+id/tabHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:icon="@drawable/icon_home">
+            android:icon="@drawable/icon_heartfill">
 
         </com.google.android.material.tabs.TabItem>
 

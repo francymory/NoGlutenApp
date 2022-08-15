@@ -1,4 +1,4 @@
-package com.example.noglutenappandroid;
+package com.example.noglutenappandroid.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,10 +11,11 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+import com.example.noglutenappandroid.R;
 import com.example.noglutenappandroid.RecipeInformation.Recipe;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder>{
@@ -31,17 +32,22 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
     @NonNull
     @Override
     public RecipeAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(context).inflate(R.layout.list_recipes, null,false);
+        View view= LayoutInflater.from(context).inflate(R.layout.list_recipes, parent);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecipeAdapter.ViewHolder holder, int position) {
-        holder.title.setText(list.get(position).title);
+        //holder.title.setText("titolo");
+       // holder.title.setSelected(true);
+       // holder.time.setText(" Min");
+        //holder.servings.setText(" Servings");
+
+        holder.title.setText(list.get(position).getTitle());
         holder.title.setSelected(true);
-        holder.time.setText(String.valueOf(list.get(position).readyInMinutes)+" Min");
-        holder.servings.setText(String.valueOf(list.get(position).servings)+" Servings");
-        Picasso.get().load(list.get(position).image).into(holder.imageView_food);
+        holder.time.setText(String.valueOf(list.get(position).getReadyInMinutes())+" Min");
+        holder.servings.setText(String.valueOf(list.get(position).getServings())+" Servings");
+        Picasso.get().load(list.get(position).getImage()).into(holder.imageView_food);
 
     }
 

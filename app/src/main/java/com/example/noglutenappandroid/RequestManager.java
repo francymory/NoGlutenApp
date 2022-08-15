@@ -59,7 +59,7 @@ public class RequestManager {
                     return;
                 }
 
-                listener.FetchRecipe(response.body().recipes, response.message());
+                listener.FetchRecipe(response.body().getRecipes(), response.message());
             }
 
             @Override
