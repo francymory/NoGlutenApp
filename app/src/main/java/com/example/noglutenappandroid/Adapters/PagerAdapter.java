@@ -24,10 +24,10 @@ public class PagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
 
         if(position==0){
-            return new HomeFragment();
+            return new FavoritesFragment();
         }
         else if(position==1){
-            return new FavoritesFragment();
+            return new HomeFragment();
         }
 
         else if(position==2){

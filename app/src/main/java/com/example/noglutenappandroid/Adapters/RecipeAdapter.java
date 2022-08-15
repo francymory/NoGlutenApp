@@ -32,27 +32,46 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
     @NonNull
     @Override
     public RecipeAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(context).inflate(R.layout.list_recipes, parent);
+        View view= LayoutInflater.from(context).inflate(R.layout.list_recipes, null, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecipeAdapter.ViewHolder holder, int position) {
-        //holder.title.setText("titolo");
-       // holder.title.setSelected(true);
-       // holder.time.setText(" Min");
-        //holder.servings.setText(" Servings");
 
-        holder.title.setText(list.get(position).getTitle());
-        holder.title.setSelected(true);
-        holder.time.setText(String.valueOf(list.get(position).getReadyInMinutes())+" Min");
-        holder.servings.setText(String.valueOf(list.get(position).getServings())+" Servings");
-        Picasso.get().load(list.get(position).getImage()).into(holder.imageView_food);
+
+        if(list.get(position).isGlutenFree()) {
+            holder.title.setText(list.get(position).getTitle());
+            holder.time.setText((list.get(position).getReadyInMinutes()) + " Min");
+            holder.servings.setText((list.get(position).getServings()) + " Servings");
+            Picasso.get().load(list.get(position).getImage()).into(holder.imageView_food);
+            if (list.get(position).isVegetarian()) {
+                holder.textView_tags_frees.setText(holder.textView_tags_frees.getText() + " Vegetarian");
+            }
+            if (list.get(position).isVegan()) {
+                holder.textView_tags_frees.setText(holder.textView_tags_frees.getText() + " Vegan");
+            }
+            if (list.get(position).isGlutenFree()) {
+                holder.textView_tags_frees.setText(holder.textView_tags_frees.getText() + " GlutenFree");
+            }
+            if (list.get(position).isDairyFree()) {
+                holder.textView_tags_frees.setText(holder.textView_tags_frees.getText() + " DairyFree");
+            }
+
+            holder.home_container.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                }
+            });
+
+        }
 
     }
 
     @Override
     public int getItemCount() {
+
         return list.size();
     }
 
@@ -61,10 +80,11 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
 
         ImageView imageView_food;
         CardView home_container;
-        TextView title, servings, time;
+        TextView title, servings, time, textView_tags_frees;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            textView_tags_frees=itemView.findViewById(R.id.textView_tags_frees);
             imageView_food=itemView.findViewById(R.id.imageView_food);
             home_container=itemView.findViewById(R.id.home_list_container);
             title=itemView.findViewById(R.id.textView_titleRecipe);

@@ -42,14 +42,11 @@ public class RequestManager {
 
     //metodo che fa la richiesta e setta il listener con la risposta dell'API
     //il parametro tags è la lista dei tag delle ricette (values-> strings)
-    public void GetRecipes(RecipeResponseListener listener){
+    public void GetRecipes(RecipeResponseListener listener, List<String> tags){
         //creo un oggetto CallRecipes
         CallRecipes callRecipes= retrofit.create(CallRecipes.class);
         //creo oggetto Call<RecipeResponse> per fare la richiesta all'api
-        List<String> noGlutenTags= new ArrayList<>();
-       // noGlutenTags.addAll(tags);
-        noGlutenTags.add("Gluten");
-        Call<RecipeResponse> request = callRecipes.callRecipeResponse("1be787c3bec54b6cad33efe22405344e", "90", noGlutenTags);
+        Call<RecipeResponse> request = callRecipes.callRecipeResponse("1be787c3bec54b6cad33efe22405344e", "90", tags);
         //eseguo richiesta e accetta come parametro un oggetto Callback che notifica la risposta/errore
         request.enqueue(new Callback<RecipeResponse>() {
             @Override

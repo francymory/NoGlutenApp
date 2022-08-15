@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -26,16 +27,61 @@ public class HomeFragment extends Fragment {
     RecipeAdapter adapter;
     RequestManager manager;
     RecyclerView recyclerViewHome;
+    List<String> tags;
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v=inflater.inflate(R.layout.home_fragment,null);
-
+        View v= inflater.inflate(R.layout.home_fragment,null);
         recyclerViewHome=v.findViewById(R.id.recyclerview_home);
 
         manager=new RequestManager(getContext());
-        manager.GetRecipes(listener);
+        tags=new ArrayList<>();
+
+        tags.add("main course");
+        tags.add("side dish");
+        tags.add("dessert");
+        tags.add("appetizer");
+        tags.add("salad");
+        tags.add("bread");
+        tags.add("breakfast");
+        tags.add("soup");
+        tags.add("beverage");
+        tags.add("sauce");
+        tags.add("marinade");
+        tags.add("fingerfood");
+        tags.add("snack");
+        tags.add("drink");
+
+        tags.add("African");
+        tags.add("American");
+        tags.add("British");
+        tags.add("Cajun");
+        tags.add("Caribbean");
+        tags.add("Chinese");
+        tags.add("Eastern European");
+        tags.add("European");
+        tags.add("French");
+        tags.add("German");
+        tags.add("Greek");
+        tags.add("Indian");
+        tags.add("Irish");
+        tags.add("Italian");
+        tags.add("Japanese");
+        tags.add("Jewish");
+        tags.add("Korean");
+        tags.add("Latin");
+        tags.add("Mediterranean");
+        tags.add("Mexican");
+        tags.add("Middle Eastern");
+        tags.add("Nordic");
+        tags.add("Southern");
+        tags.add("Spanish");
+        tags.add("Thai");
+        tags.add("Vietnamese");
+
+        manager.GetRecipes(listener, tags);
 
         return v;
     }

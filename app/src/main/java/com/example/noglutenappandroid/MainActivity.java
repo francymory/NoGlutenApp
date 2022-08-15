@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         mtabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
                 if(tab.getPosition()==0 || tab.getPosition()==1||tab.getPosition()==2){
                     pagerAdapter.notifyDataSetChanged();
                 }
