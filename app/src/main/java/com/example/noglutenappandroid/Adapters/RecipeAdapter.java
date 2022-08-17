@@ -1,7 +1,8 @@
 package com.example.noglutenappandroid.Adapters;
 
-import android.annotation.SuppressLint;
+
 import android.content.Context;
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder> {
+public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder>{
+
     Context context;
     List<Recipe> list;
 
@@ -33,16 +35,17 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
     @NonNull
     @Override
     public RecipeAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.list_recipes, null, false);
+
+        View view= LayoutInflater.from(context).inflate(R.layout.list_recipes, null, false);
         return new ViewHolder(view);
     }
 
-    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull RecipeAdapter.ViewHolder holder, int position) {
 
 
-        if (list.get(position).isGlutenFree()) {
+        if(list.get(position).isGlutenFree()) {
+
             holder.title.setText(list.get(position).getTitle());
             holder.time.setText((list.get(position).getReadyInMinutes()) + " Min");
             holder.servings.setText((list.get(position).getServings()) + " Servings");
@@ -78,7 +81,9 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
     }
 
 
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
+
 
         ImageView imageView_food;
         CardView home_container;
@@ -86,6 +91,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
             textView_tags_frees = itemView.findViewById(R.id.textView_tags_frees);
             imageView_food = itemView.findViewById(R.id.imageView_food);
             home_container = itemView.findViewById(R.id.home_list_container);
@@ -95,3 +101,4 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
         }
     }
 }
+

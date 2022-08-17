@@ -6,6 +6,7 @@ public class Ingredient {
     public String localizedName;
     public String image;
 
+
     public int getId() {
         return id;
     }
@@ -23,3 +24,6 @@ public class Ingredient {
     }
 
 }
+
+
+

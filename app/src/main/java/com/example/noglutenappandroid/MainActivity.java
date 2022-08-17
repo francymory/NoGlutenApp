@@ -12,9 +12,11 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.viewpager.widget.ViewPager;
 
+
+import com.example.noglutenappandroid.Adapters.PagerAdapter;
+import com.google.android.material.tabs.TabItem;
 import com.example.noglutenappandroid.RecipeInformation.Recipe;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -39,8 +41,16 @@ public class MainActivity extends AppCompatActivity {
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
+
             public boolean onQueryTextSubmit(String query) {
                 return false;
+
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+                if(tab.getPosition()==0 || tab.getPosition()==1||tab.getPosition()==2){
+                    pagerAdapter.notifyDataSetChanged();
+                }
+
             }
 
             @Override
