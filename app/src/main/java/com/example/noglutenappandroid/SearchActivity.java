@@ -8,15 +8,14 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.noglutenappandroid.Adapters.RecipeAdapter;
 import com.example.noglutenappandroid.RecipeInformation.Recipe;
-import com.example.noglutenappandroid.RecipeInformation.RecipeAdapter;
 
 import java.util.ArrayList;
 
 public class SearchActivity extends AppCompatActivity {
     public static ArrayList<Recipe> recipeList = new ArrayList<Recipe>();
     private ListView listView;
-
     protected void onCreate(Bundle savedInstanceState){
         super .onCreate(savedInstanceState);
         setContentView(R.layout.search_fragment);
@@ -33,8 +32,6 @@ public class SearchActivity extends AppCompatActivity {
     private void setupList(){
         listView = (ListView) findViewById(R.id.recipesListView);
 
-        RecipeAdapter adapter= new RecipeAdapter(getApplicationContext(), 0, recipeList);
-        listView.setAdapter(adapter);
     }
 
     private void setupOnclickListener(){

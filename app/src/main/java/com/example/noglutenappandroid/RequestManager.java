@@ -2,6 +2,8 @@ package com.example.noglutenappandroid;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
+
 import com.example.noglutenappandroid.Listeners.RecipeResponseListener;
 import com.example.noglutenappandroid.RecipeInformation.RecipeResponse;
 
@@ -53,17 +55,18 @@ public class RequestManager {
         //eseguo richiesta e accetta come parametro un oggetto Callback che notifica la risposta/errore
         request.enqueue(new Callback<RecipeResponse>() {
             @Override
-            public void onResponse(Call<RecipeResponse> call, Response<RecipeResponse> response) {
+            public void onResponse(@NonNull Call<RecipeResponse> call, @NonNull Response<RecipeResponse> response) {
                 if(!response.isSuccessful()){
                     listener.ErrorRecipe(response.message());
                     return;
                 }
 
+                assert response.body() != null;
                 listener.FetchRecipe(response.body().recipes, response.message());
             }
 
             @Override
-            public void onFailure(Call<RecipeResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<RecipeResponse> call, Throwable t) {
                 listener.ErrorRecipe(t.getMessage());  //se la richiesta fallisce proprio voglio il messaggio di errore
             }
         });
