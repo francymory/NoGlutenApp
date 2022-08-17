@@ -17,42 +17,151 @@
 
     </SearchView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Chinese"
-            android:id="@+id/chineseFilter">
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp">
 
-        </Button>
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Italian"
-            android:id="@+id/italianFilter">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:measureWithLargestChild="true">
 
-        </Button>
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="American"
-            android:id="@+id/americanFilter">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="CHINESE"
+                android:id="@+id/chineseFilter">
 
-        </Button>
+            </Button>
 
-    </LinearLayout>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="INDIAN"
+                android:id="@+id/indianFilter">
+
+            </Button>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="JAPANESE"
+                android:id="@+id/japanFilter">
+
+            </Button>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="Italian"
+                android:id="@+id/italianFilter">
+
+            </Button>
+
+            <Button
+                 android:layout_width="wrap_content"
+                 android:layout_height="match_parent"
+                 android:text="American"
+                android:id="@+id/americanFilter">
+
+             </Button>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:measureWithLargestChild="true">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="MAIN COURSE"
+                android:id="@+id/mainCourseFilter">
+
+            </Button>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="SIDE DISHES"
+                android:id="@+id/sideDishesFilter">
+
+            </Button>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="APPETIZER"
+                android:id="@+id/appetizerFilter">
+
+            </Button>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="DESSERT"
+                android:id="@+id/dessertFilter">
+
+            </Button>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="BREAKFAST"
+                android:id="@+id/breakfastFilter">
+
+            </Button>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="SNACK"
+                android:id="@+id/snackFilter">
+
+            </Button>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="BEVERAGE"
+                android:id="@+id/beverageFilter">
+
+            </Button>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="SOUP"
+                android:id="@+id/soupFilter">
+
+            </Button>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="SAUCE"
+                android:id="@+id/sauceFilter">
+
+            </Button>
+
+
+        </LinearLayout>
+    </ScrollView>
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recipesListView">
-
     </ListView>
 
     </LinearLayout>

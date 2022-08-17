@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/yourRecipesFragment"
+        android:name="com.example.noglutenappandroid.YourRecipesFragment"
+        android:label="YourRecipesFragment" />
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.noglutenappandroid.HomeFragment"
+        android:label="HomeFragment" />
+
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.example.noglutenappandroid.FavoritesFragment"
+        android:label="FavoritesFragment" />
+
+</navigation>

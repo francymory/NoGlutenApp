@@ -40,6 +40,8 @@ dependencies {
 
     //aggiunta dipendenza per picasso=libreria per scaricare
     implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'androidx.navigation:navigation-fragment:2.5.1'
+    implementation 'androidx.navigation:navigation-ui:2.5.1'
 
 
     testImplementation 'junit:junit:4.13.2'

@@ -25,6 +25,9 @@ public class Recipe {
     public ArrayList<ExtendedIngredient> extendedIngredients;
     public int id;
     public String title;
+    public String getTitle() {
+        return title;
+    }
     public int readyInMinutes;
     public int servings;
     public String sourceUrl;
