@@ -1,18 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="10dp">
 
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/title_notes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your recipes!\n:)"
+        android:text="Your recipes"
         android:textColor="@color/orange"
-        android:textSize="50dp"
-        android:gravity="center"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_yourRecipes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title_notes"
+        android:layout_above="@id/button_add"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_add"
+        android:layout_alignRight="@id/recyclerview_yourRecipes"
+       android:layout_alignParentBottom="true"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="2dp"
+        android:text="+"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/orange"
+        android:textSize="30dp"/>
+
 
 </RelativeLayout>
