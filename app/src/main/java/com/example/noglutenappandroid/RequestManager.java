@@ -60,7 +60,7 @@ public class RequestManager {
 
 
                 assert response.body() != null;
-                listener.FetchRecipe(response.body().getRecipes, response.message());
+                listener.FetchRecipe(response.body().getRecipes(), response.message());
 
             }
 

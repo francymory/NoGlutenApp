@@ -44,14 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
             public boolean onQueryTextSubmit(String query) {
                 return false;
-
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-                if(tab.getPosition()==0 || tab.getPosition()==1||tab.getPosition()==2){
-                    pagerAdapter.notifyDataSetChanged();
-                }
-
             }
+
 
             @Override
             public boolean onQueryTextChange(String query) {
