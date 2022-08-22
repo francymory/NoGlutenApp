@@ -4,7 +4,10 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 
+import com.example.noglutenappandroid.Listeners.FavoriteResponseListener;
 import com.example.noglutenappandroid.Listeners.RecipeResponseListener;
+import com.example.noglutenappandroid.RecipeInformation.FavoriteDetailsResponse;
+import com.example.noglutenappandroid.RecipeInformation.InstructionResponse;
 import com.example.noglutenappandroid.RecipeInformation.RecipeResponse;
 
 import java.util.ArrayList;
@@ -16,6 +19,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public class RequestManager {
@@ -67,6 +71,37 @@ public class RequestManager {
             @Override
             public void onFailure(@NonNull Call<RecipeResponse> call, Throwable t) {
                 listener.ErrorRecipe(t.getMessage());  //se la richiesta fallisce proprio voglio il messaggio di errore
+            }
+        });
+    }
+
+    private interface CallFavoriteDetails{
+        @GET("recipes/{id}/information")
+        Call<FavoriteDetailsResponse> callRecipeDetails(
+                @Path("id") int id,
+                @Query("apiKey") String apiKey
+        );
+
+    }
+
+
+    public void GetFavoriteDetails(FavoriteResponseListener listener, int id){
+        CallFavoriteDetails callRecipeDetails = retrofit.create(CallFavoriteDetails.class);
+        Call<FavoriteDetailsResponse> call = callRecipeDetails.callRecipeDetails(id, "1be787c3bec54b6cad33efe22405344e");
+        call.enqueue(new Callback<FavoriteDetailsResponse>() {
+            @Override
+            public void onResponse(Call<FavoriteDetailsResponse> call, Response<FavoriteDetailsResponse> response) {
+                if (!response.isSuccessful()){
+                    listener.didError(response.message());
+                    return;
+                }
+                listener.didFetch(response.body(), response.message());
+
+            }
+
+            @Override
+            public void onFailure(Call<FavoriteDetailsResponse> call, Throwable t) {
+                listener.didError(t.getMessage());
             }
         });
     }

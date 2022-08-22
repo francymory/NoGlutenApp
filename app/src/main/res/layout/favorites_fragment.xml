@@ -2,20 +2,26 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+
+    <TextView
+        android:id="@+id/title_favorites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Favorite Recipes"
+        android:textColor="@color/orange"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:gravity="center" />
 
     <androidx.recyclerview.widget.RecyclerView
-
-        android:id="@+id/recyclerview_home"
+        android:id="@+id/recyclerview_favorites"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="2dp"
-        android:fitsSystemWindows="true"
-        android:padding="2dp">
-
+        android:layout_below="@id/title_favorites"
+        >
     </androidx.recyclerview.widget.RecyclerView>
 
 

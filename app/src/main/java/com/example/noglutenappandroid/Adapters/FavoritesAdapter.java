@@ -1,6 +1,7 @@
 package com.example.noglutenappandroid.Adapters;
 
 import android.content.Context;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,40 +13,38 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.noglutenappandroid.FavoritesActivity;
 import com.example.noglutenappandroid.R;
 import com.example.noglutenappandroid.YourRecipeNote;
-
-import org.w3c.dom.Text;
 
 import java.text.DateFormat;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
 
-public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHolder>{
+public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.FavoritesViewHolder>{
 
     Context context;
     RealmResults<YourRecipeNote> notesList;
 
-    public NotesAdapter(Context context, RealmResults<YourRecipeNote> notesList) {
+    public FavoritesAdapter(Context context, RealmResults<YourRecipeNote> notesList) {
         this.context = context;
         this.notesList = notesList;
     }
 
     @NonNull
     @Override
-    public NotesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new NotesViewHolder(LayoutInflater.from(context).inflate(R.layout.list_notes,parent,false));
-
+    public FavoritesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new FavoritesViewHolder(LayoutInflater.from(context).inflate(R.layout.list_favorites,parent,false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NotesViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull FavoritesViewHolder holder, int position) {
 
         YourRecipeNote note=notesList.get(position);
-        holder.titleOutput.setText(note.getTitle());
-        holder.descriptionOutput.setText(note.getDescription());
-        holder.timeOutput.setText(DateFormat.getDateInstance().format(note.getTimeCreation()));
+        holder.titleOutputFav.setText(note.getTitle());
+        holder.descriptionOutputFav.setText(note.getDescription());
+        holder.timeOutputFav.setText(DateFormat.getDateInstance().format(note.getTimeCreation()));
 
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -70,24 +69,28 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
                 return true;
             }
         });
+
     }
 
     @Override
     public int getItemCount() {
-        return notesList.size();
+         return notesList.size();
     }
 
-    public class NotesViewHolder extends RecyclerView.ViewHolder{
 
-        TextView titleOutput;
-        TextView descriptionOutput;
-        TextView timeOutput;
+    public class FavoritesViewHolder extends RecyclerView.ViewHolder{
+        TextView titleOutputFav;
+        TextView descriptionOutputFav;
+        TextView timeOutputFav;
 
-        public NotesViewHolder(@NonNull View itemView) {
+        public FavoritesViewHolder(@NonNull View itemView) {
             super(itemView);
-            titleOutput=itemView.findViewById(R.id.titleoutput);
-            descriptionOutput=itemView.findViewById(R.id.descriptionoutput);
-            timeOutput=itemView.findViewById(R.id.timeoutput);
+            titleOutputFav=itemView.findViewById(R.id.titleoutputFavorite);
+            descriptionOutputFav=itemView.findViewById(R.id.descriptionoutputFavorite);
+            descriptionOutputFav.setMovementMethod(new ScrollingMovementMethod());
+            timeOutputFav=itemView.findViewById(R.id.timeoutputFavorite);
         }
+
     }
+
 }

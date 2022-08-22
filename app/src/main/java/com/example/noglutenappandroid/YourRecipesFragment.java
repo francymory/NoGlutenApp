@@ -18,6 +18,7 @@ import com.google.android.material.button.MaterialButton;
 
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
+import io.realm.RealmQuery;
 import io.realm.RealmResults;
 import io.realm.Sort;
 
@@ -41,7 +42,9 @@ public class YourRecipesFragment extends Fragment {
 
         Realm.init(getContext().getApplicationContext());
         Realm realm=Realm.getDefaultInstance();
-        RealmResults notesList = realm.where(YourRecipeNote.class).findAll().sort("timeCreation", Sort.DESCENDING);
+        RealmQuery<YourRecipeNote> query = realm.where(YourRecipeNote.class);
+        query.equalTo("type", "note");
+        RealmResults notesList = query.findAll().sort("timeCreation", Sort.DESCENDING);
 
         recyclerViewYourRecipes.setLayoutManager(new LinearLayoutManager(getContext()));
         NotesAdapter notesAdapter=new NotesAdapter(getContext().getApplicationContext(), notesList );

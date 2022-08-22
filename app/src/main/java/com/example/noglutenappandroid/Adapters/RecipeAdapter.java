@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.example.noglutenappandroid.Listeners.FavoritesClickListener;
 import com.example.noglutenappandroid.R;
 import com.example.noglutenappandroid.RecipeInformation.Recipe;
 import com.squareup.picasso.Picasso;
@@ -24,11 +26,13 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
 
     Context context;
     List<Recipe> list;
+    FavoritesClickListener favoritesListener;
 
 
-    public RecipeAdapter(Context context, List<Recipe> list) {
+    public RecipeAdapter(Context context, List<Recipe> list,FavoritesClickListener favoritesListener) {
         this.context = context;
         this.list = list;
+        this.favoritesListener=favoritesListener;
 
     }
 
@@ -63,10 +67,10 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
                 holder.textView_tags_frees.setText(holder.textView_tags_frees.getText() + " DairyFree");
             }
 
-            holder.home_container.setOnClickListener(new View.OnClickListener() {
+            holder.favoriteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    favoritesListener.onClick(String.valueOf(list.get(holder.getAbsoluteAdapterPosition()).getId()));
                 }
             });
 
@@ -88,6 +92,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
         ImageView imageView_food;
         CardView home_container;
         TextView title, servings, time, textView_tags_frees;
+        ImageButton favoriteButton;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -98,6 +103,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
             title = itemView.findViewById(R.id.textView_titleRecipe);
             servings = itemView.findViewById(R.id.textView_serving);
             time = itemView.findViewById(R.id.textView_time);
+            favoriteButton=itemView.findViewById(R.id.favoriteButton);
         }
     }
 }

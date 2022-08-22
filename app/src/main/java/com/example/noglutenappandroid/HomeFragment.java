@@ -1,5 +1,7 @@
 package com.example.noglutenappandroid;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.example.noglutenappandroid.Adapters.RecipeAdapter;
+import com.example.noglutenappandroid.Listeners.FavoritesClickListener;
 import com.example.noglutenappandroid.Listeners.RecipeResponseListener;
 import com.example.noglutenappandroid.RecipeInformation.Recipe;
 
@@ -28,6 +31,8 @@ public class HomeFragment extends Fragment {
     RequestManager manager;
     RecyclerView recyclerViewHome;
     List<String> tags;
+    ProgressDialog dialog;
+
 
 
     @Nullable
@@ -35,6 +40,10 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v= inflater.inflate(R.layout.home_fragment,null);
         recyclerViewHome=v.findViewById(R.id.recyclerview_home);
+
+        dialog = new ProgressDialog(getContext());
+        dialog.setTitle("Loading...");
+
 
         manager=new RequestManager(getContext());
         tags=new ArrayList<>();
@@ -82,6 +91,7 @@ public class HomeFragment extends Fragment {
         tags.add("Vietnamese");
 
         manager.GetRecipes(listener, tags);
+        dialog.show();
 
         return v;
     }
@@ -90,9 +100,10 @@ public class HomeFragment extends Fragment {
 
         @Override
         public void FetchRecipe(List<Recipe> responses, String APImessage) {
+            dialog.dismiss();
             recyclerViewHome.setHasFixedSize(true);
             recyclerViewHome.setLayoutManager(new StaggeredGridLayoutManager(1, LinearLayoutManager.VERTICAL));
-            adapter = new RecipeAdapter(getContext(), responses);
+            adapter = new RecipeAdapter(getContext(), responses,favoritesClickListener);
             recyclerViewHome.setAdapter(adapter);
             recyclerViewHome.setVisibility(View.VISIBLE);
 
@@ -103,6 +114,14 @@ public class HomeFragment extends Fragment {
         public void ErrorRecipe(String APImessage) {
             recyclerViewHome.setVisibility(View.VISIBLE);
             Toast.makeText(getContext(), APImessage, Toast.LENGTH_SHORT).show();
+        }
+    };
+
+    private final FavoritesClickListener favoritesClickListener =new FavoritesClickListener() {
+        @Override
+        public void onClick(String text) {
+            startActivity(new Intent(getContext(), FavoritesActivity.class).putExtra("id", text));
+
         }
     };
 
