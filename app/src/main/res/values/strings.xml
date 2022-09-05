@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">NoGluten App Android</string>
     <string name="api_key">1be787c3bec54b6cad33efe22405344e</string>
-    <string-array name="tags">
+    <string-array name="cusine_tags">
         <item>African</item>
         <item>American</item>
         <item>British</item>
@@ -28,5 +28,22 @@
         <item>Spanish</item>
         <item>Thai</item>
         <item>Vietnamese</item>
+    </string-array>
+
+    <string-array name="meal_tags">
+        <item>main course</item>
+        <item>side dish</item>
+        <item>dessert</item>
+        <item>appetizer</item>
+        <item>salad</item>
+        <item>bread</item>
+        <item>breakfast</item>
+        <item>soup</item>
+        <item>beverage</item>
+        <item>sauce</item>
+        <item>marinade</item>
+        <item>fingerfood</item>
+        <item>snack</item>
+        <item>drink</item>
     </string-array>
 </resources>

@@ -9,8 +9,8 @@
         android:id="@+id/recyclerview_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/filters"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="52dp"
         android:layout_marginEnd="2dp"
         android:layout_marginBottom="2dp"
         android:fitsSystemWindows="true"
@@ -19,20 +19,56 @@
     </androidx.recyclerview.widget.RecyclerView>
 
     <SearchView
+        android:id="@+id/recipesListSearchView"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/recipesListSearchView"
         android:iconifiedByDefault="false"
-        android:queryHint="Search for recipes">
+        android:queryHint="Search for recipes"
+        android:layout_margin="5dp">
 
     </SearchView>
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/recipesListSearchView">
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:id="@+id/filters"
+        android:layout_below="@+id/recipesListSearchView"
+        android:layout_margin="5dp">
 
-    </ScrollView>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+                <Spinner
+                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:id="@+id/sp_cusine"
+                    android:entries="@array/cusine_tags">                    >
+                </Spinner>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <Spinner
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:id="@+id/sp_meal"
+                android:entries="@array/meal_tags">
+            </Spinner>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
 
 
 </RelativeLayout>
