@@ -3,6 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Hp/Desktop/UNI/2°anno/Programmazione Oggetti/Lab/NoGlutenApp/app/src/main/res/drawable/ic_people.xml" value="0.162" />
+        <entry key="..\:/Users/Hp/Desktop/UNI/2°anno/Programmazione Oggetti/Lab/NoGlutenApp/app/src/main/res/layout/activity_add_recipes.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Hp/Desktop/UNI/2°anno/Programmazione Oggetti/Lab/NoGlutenApp/app/src/main/res/layout/activity_details.xml" value="0.264" />
+        <entry key="..\:/Users/Hp/Desktop/UNI/2°anno/Programmazione Oggetti/Lab/NoGlutenApp/app/src/main/res/layout/activity_favorites.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/Hp/Desktop/UNI/2°anno/Programmazione Oggetti/Lab/NoGlutenApp/app/src/main/res/layout/activity_main.xml" value="0.14990942028985507" />
+        <entry key="..\:/Users/Hp/Desktop/UNI/2°anno/Programmazione Oggetti/Lab/NoGlutenApp/app/src/main/res/layout/favorites_fragment.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/Hp/Desktop/UNI/2°anno/Programmazione Oggetti/Lab/NoGlutenApp/app/src/main/res/layout/home_fragment.xml" value="0.14990942028985507" />
+        <entry key="..\:/Users/Hp/Desktop/UNI/2°anno/Programmazione Oggetti/Lab/NoGlutenApp/app/src/main/res/layout/list_favorites.xml" value="0.264" />
+        <entry key="..\:/Users/Hp/Desktop/UNI/2°anno/Programmazione Oggetti/Lab/NoGlutenApp/app/src/main/res/layout/list_recipes.xml" value="0.14990942028985507" />
+        <entry key="..\:/Users/Hp/Desktop/UNI/2°anno/Programmazione Oggetti/Lab/NoGlutenApp/app/src/main/res/layout/recipe_cell.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/Hp/Desktop/UNI/2°anno/Programmazione Oggetti/Lab/NoGlutenApp/app/src/main/res/layout/your_recipes_fragment.xml" value="0.14990942028985507" />
         <entry key="..\:/Users/franc/AndroidStudioProjects/NoGlutenAppAndroid/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/franc/AndroidStudioProjects/NoGlutenAppAndroid/app/src/main/res/layout/activity_add_recipes.xml" value="0.1" />
         <entry key="..\:/Users/franc/AndroidStudioProjects/NoGlutenAppAndroid/app/src/main/res/layout/activity_details.xml" value="0.15942028985507245" />
