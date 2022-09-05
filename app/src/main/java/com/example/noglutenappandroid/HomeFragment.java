@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -33,7 +34,7 @@ public class HomeFragment extends Fragment {
     RecyclerView recyclerViewHome;
     List<String> tags;
     ProgressDialog dialog;
-
+    SearchView searchView;
 
 
     @Nullable
@@ -94,6 +95,21 @@ public class HomeFragment extends Fragment {
         manager.GetRecipes(listener, tags);
         dialog.show();
 
+        searchView= v.findViewById(R.id.recipesListSearchView);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                tags.clear();
+                tags.add(query);
+                manager.GetRecipes(listener, tags);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                return false;
+            }
+        });
         return v;
     }
 

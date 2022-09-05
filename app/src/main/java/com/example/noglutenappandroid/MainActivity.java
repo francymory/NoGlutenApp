@@ -40,31 +40,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void initSearchWidgets(){
-        SearchView searchView = (SearchView) findViewById(R.id.recipesListSearchView);
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-
-            @Override
-            public boolean onQueryTextChange(String query) {
-                ArrayList<Recipe> filteredRecipes = new ArrayList<Recipe>();
-
-                for(Recipe recipe: filteredRecipes){
-                    if(recipe.getTitle().toLowerCase().contains(query.toLowerCase())){
-                        filteredRecipes.add(recipe);
-                    }
-
-                }
-                return false;
-            }
-        });
-    }
-
-
 }

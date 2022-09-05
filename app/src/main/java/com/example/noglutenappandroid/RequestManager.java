@@ -53,7 +53,7 @@ public class RequestManager {
         //creo un oggetto CallRecipes
         CallRecipes callRecipes= retrofit.create(CallRecipes.class);
         //creo oggetto Call<RecipeResponse> per fare la richiesta all'api
-        Call<RecipeResponse> request = callRecipes.callRecipeResponse("1be787c3bec54b6cad33efe22405344e", "90", tags);
+        Call<RecipeResponse> request = callRecipes.callRecipeResponse("9dc0991f22554d38a52bbe776312365e", "50", tags);
         //eseguo richiesta e accetta come parametro un oggetto Callback che notifica la risposta/errore
         request.enqueue(new Callback<RecipeResponse>() {
             @Override
@@ -88,7 +88,7 @@ public class RequestManager {
 
     public void GetFavoriteDetails(FavoriteResponseListener listener, int id){
         CallFavoriteDetails callRecipeDetails = retrofit.create(CallFavoriteDetails.class);
-        Call<FavoriteDetailsResponse> call = callRecipeDetails.callRecipeDetails(id, "1be787c3bec54b6cad33efe22405344e");
+        Call<FavoriteDetailsResponse> call = callRecipeDetails.callRecipeDetails(id, "9dc0991f22554d38a52bbe776312365e");
         call.enqueue(new Callback<FavoriteDetailsResponse>() {
             @Override
             public void onResponse(Call<FavoriteDetailsResponse> call, Response<FavoriteDetailsResponse> response) {
