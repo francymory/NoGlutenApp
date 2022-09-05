@@ -2,32 +2,32 @@
     <string name="app_name">NoGluten App Android</string>
     <string name="api_key">1be787c3bec54b6cad33efe22405344e</string>
     <string-array name="cusine_tags">
-        <item>African</item>
-        <item>American</item>
-        <item>British</item>
-        <item>Cajun</item>
-        <item>Caribbean</item>
-        <item>Chinese</item>
-        <item>Eastern European</item>
-        <item>European</item>
-        <item>French</item>
-        <item>German</item>
-        <item>Greek</item>
-        <item>Indian</item>
-        <item>Irish</item>
-        <item>Italian</item>
-        <item>Japanese</item>
-        <item>Jewish</item>
-        <item>Korean</item>
-        <item>Latin American</item>
-        <item>Mediterranean</item>
-        <item>Mexican</item>
-        <item>Middle Eastern</item>
-        <item>Nordic</item>
-        <item>Southern</item>
-        <item>Spanish</item>
-        <item>Thai</item>
-        <item>Vietnamese</item>
+        <item>african</item>
+        <item>american</item>
+        <item>british</item>
+        <item>cajun</item>
+        <item>caribbean</item>
+        <item>chinese</item>
+        <item>eastern european</item>
+        <item>european</item>
+        <item>french</item>
+        <item>german</item>
+        <item>greek</item>
+        <item>indian</item>
+        <item>irish</item>
+        <item>italian</item>
+        <item>japanese</item>
+        <item>jewish</item>
+        <item>korean</item>
+        <item>latin american</item>
+        <item>mediterranean</item>
+        <item>mexican</item>
+        <item>middle eastern</item>
+        <item>nordic</item>
+        <item>southern</item>
+        <item>spanish</item>
+        <item>thai</item>
+        <item>vietnamese</item>
     </string-array>
 
     <string-array name="meal_tags">
@@ -46,4 +46,5 @@
         <item>snack</item>
         <item>drink</item>
     </string-array>
+
 </resources>

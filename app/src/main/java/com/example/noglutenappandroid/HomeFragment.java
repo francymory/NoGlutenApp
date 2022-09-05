@@ -53,18 +53,62 @@ public class HomeFragment extends Fragment {
         spCusine = v.findViewById(R.id.sp_cusine);
         spMeal = v.findViewById((R.id.sp_meal));
 
-        ArrayAdapter arrayAdapterCusine = ArrayAdapter.createFromResource(getContext(), R.array.cusine_tags, R.layout.sp_cusine_text);
-        arrayAdapterCusine.setDropDownViewResource(R.layout.sp_cusine_innertext);
-        spCusine.setAdapter(arrayAdapterCusine);
-        spCusine.setOnItemSelectedListener(spinnerSelectedListener);
+        ArrayAdapter arrayAdapterCuisine = ArrayAdapter.createFromResource(getContext(), R.array.cusine_tags, R.layout.sp_cusine_text);
+        arrayAdapterCuisine.setDropDownViewResource(R.layout.sp_cusine_innertext);
+        spCusine.setAdapter(arrayAdapterCuisine);
+        spCusine.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                tags.clear();
+                tags.add(adapterView.getSelectedItem().toString());
+                manager.GetRecipes(listener, tags);
+                dialog.show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
 
         ArrayAdapter arrayAdapterMeal = ArrayAdapter.createFromResource(getContext(), R.array.meal_tags, R.layout.sp_meal_text);
         arrayAdapterMeal.setDropDownViewResource(R.layout.sp_meal_innertext);
         spMeal.setAdapter(arrayAdapterMeal);
-        spMeal.setOnItemSelectedListener(spinnerSelectedListener);
+        spMeal.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                tags.clear();
+                tags.add(adapterView.getSelectedItem().toString());
+                manager.GetRecipes(listener, tags);
+                dialog.show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         manager=new RequestManager(getContext());
+
+        searchView= v.findViewById(R.id.recipesListSearchView);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                tags.clear();
+                tags.add(query);
+                manager.GetRecipes(listener,tags);
+                dialog.show();
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                return false;
+            }
+        });
+
 
         searchView= v.findViewById(R.id.recipesListSearchView);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
@@ -94,7 +138,6 @@ public class HomeFragment extends Fragment {
             adapter = new RecipeAdapter(getContext(), responses,favoritesClickListener, detailClickListener);
             recyclerViewHome.setAdapter(adapter);
             recyclerViewHome.setVisibility(View.VISIBLE);
-
         }
 
 
@@ -121,22 +164,4 @@ public class HomeFragment extends Fragment {
 
         }
     };
-
-    private final AdapterView.OnItemSelectedListener spinnerSelectedListener = new AdapterView.OnItemSelectedListener() {
-        @Override
-        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-            tags.clear();
-            tags.add(adapterView.getSelectedItem().toString());
-            manager.GetRecipes(listener, tags);
-            dialog.show();
-
-        }
-
-        @Override
-        public void onNothingSelected(AdapterView<?> adapterView) {
-
-        }
-    };
-
-
 }
