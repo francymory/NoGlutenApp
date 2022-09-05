@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.example.noglutenappandroid.Adapters.RecipeAdapter;
+import com.example.noglutenappandroid.Listeners.DetailClickListener;
 import com.example.noglutenappandroid.Listeners.FavoritesClickListener;
 import com.example.noglutenappandroid.Listeners.RecipeResponseListener;
 import com.example.noglutenappandroid.RecipeInformation.Recipe;
@@ -103,7 +104,7 @@ public class HomeFragment extends Fragment {
             dialog.dismiss();
             recyclerViewHome.setHasFixedSize(true);
             recyclerViewHome.setLayoutManager(new StaggeredGridLayoutManager(1, LinearLayoutManager.VERTICAL));
-            adapter = new RecipeAdapter(getContext(), responses,favoritesClickListener);
+            adapter = new RecipeAdapter(getContext(), responses,favoritesClickListener, detailClickListener);
             recyclerViewHome.setAdapter(adapter);
             recyclerViewHome.setVisibility(View.VISIBLE);
 
@@ -121,6 +122,15 @@ public class HomeFragment extends Fragment {
         @Override
         public void onClick(String text) {
             startActivity(new Intent(getContext(), FavoritesActivity.class).putExtra("id", text));
+
+        }
+    };
+
+    private final DetailClickListener detailClickListener =new DetailClickListener() {
+
+        @Override
+        public void onClick(String text) {
+            startActivity(new Intent(getContext(), DetailsActivity.class).putExtra("id", text));
 
         }
     };

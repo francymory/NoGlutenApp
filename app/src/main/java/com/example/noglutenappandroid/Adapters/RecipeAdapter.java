@@ -15,6 +15,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.example.noglutenappandroid.Listeners.DetailClickListener;
 import com.example.noglutenappandroid.Listeners.FavoritesClickListener;
 import com.example.noglutenappandroid.R;
 import com.example.noglutenappandroid.RecipeInformation.Recipe;
@@ -27,13 +28,14 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
     Context context;
     List<Recipe> list;
     FavoritesClickListener favoritesListener;
+    DetailClickListener detailClickListener;
 
 
-    public RecipeAdapter(Context context, List<Recipe> list,FavoritesClickListener favoritesListener) {
+    public RecipeAdapter(Context context, List<Recipe> list, FavoritesClickListener favoritesListener, DetailClickListener detailClickListener) {
         this.context = context;
         this.list = list;
-        this.favoritesListener=favoritesListener;
-
+        this.favoritesListener = favoritesListener;
+        this.detailClickListener = detailClickListener;
     }
 
     @NonNull
@@ -71,6 +73,13 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
                 @Override
                 public void onClick(View view) {
                     favoritesListener.onClick(String.valueOf(list.get(holder.getAbsoluteAdapterPosition()).getId()));
+                }
+            });
+
+            holder.home_container.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    detailClickListener.onClick(String.valueOf(list.get(holder.getAbsoluteAdapterPosition()).getId()));
                 }
             });
 

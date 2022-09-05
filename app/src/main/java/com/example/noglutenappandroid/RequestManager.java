@@ -4,6 +4,7 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 
+
 import com.example.noglutenappandroid.Listeners.FavoriteResponseListener;
 import com.example.noglutenappandroid.Listeners.RecipeResponseListener;
 import com.example.noglutenappandroid.RecipeInformation.FavoriteDetailsResponse;
@@ -105,6 +106,11 @@ public class RequestManager {
             }
         });
     }
+
+
+
+
+
 
 
 

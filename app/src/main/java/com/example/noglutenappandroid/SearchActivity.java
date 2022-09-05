@@ -39,7 +39,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Recipe selectRecipe = (Recipe) (listView.getItemAtPosition(position));
-                Intent showDetail = new Intent(getApplicationContext(), DetailActivity.class);
+                Intent showDetail = new Intent(getApplicationContext(), DetailsActivity.class);
             }
         });
     }
